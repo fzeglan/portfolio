@@ -13,6 +13,11 @@ import { Toaster } from "./ui/toaster";
 const ICONS = { Puzzle, Network, Bot, BarChart3 };
 
 function Hero() {
+  const handleImgError = (e) => {
+    if (e?.currentTarget) {
+      e.currentTarget.src = "/images/portrait-fallback.svg";
+    }
+  };
   return (
     <section className="hero-gradient border-b border-border">
       <div className="mx-auto max-w-7xl px-4 py-16 md:py-24 grid md:grid-cols-2 gap-10 items-center">
@@ -35,6 +40,8 @@ function Hero() {
             <img
               src={HERO_PLACEHOLDER.url}
               alt={HERO_PLACEHOLDER.alt}
+              onError={handleImgError}
+              referrerPolicy="no-referrer"
               className="relative h-48 w-48 md:h-64 md:w-64 rounded-full object-cover ring-2 ring-purple-500/60 shadow-xl"
               loading="lazy"
             />
@@ -56,8 +63,8 @@ function Sobre() {
             Sou Felipe Zeglan, especialista em automação, tecnologia e programação em Python. Transformo ideias em sistemas que funcionam — de conectores entre plataformas a bots inteligentes e painéis sob medida.
           </p>
           <div className="flex flex-wrap gap-2 mt-6">
-            {chips.map((c) => (
-              <Badge key={c} className="badge-chip">{c}</Badge>
+            {chips.map((c, idx) => (
+              <Badge key={`${c}-${idx}`} className="badge-chip">{c}</Badge>
             ))}
           </div>
         </div>
@@ -112,6 +119,9 @@ function Servicos() {
 }
 
 function Projetos() {
+  const onImgError = (e, idx) => {
+    if (e?.currentTarget) e.currentTarget.src = `/images/proj-${idx + 1}.svg`;
+  };
   return (
     <section id="projetos" className="section-alt">
       <div className="mx-auto max-w-7xl px-4 py-16 md:py-20">
@@ -120,18 +130,18 @@ function Projetos() {
           <a href="#contato" className="text-sm text-purple-300 hover:underline">Ver todos os projetos</a>
         </div>
         <div className="grid md:grid-cols-3 gap-4">
-          {PROJECTS.map((p) => (
+          {PROJECTS.map((p, idx) => (
             <Card key={p.id} className="overflow-hidden card-hover">
               <CardContent className="p-0">
                 <div className="aspect-[16/10] bg-muted overflow-hidden">
-                  <img src={p.image} alt={p.title} className="h-full w-full object-cover" loading="lazy" />
+                  <img src={p.image} alt={p.title} onError={(e) => onImgError(e, idx)} referrerPolicy="no-referrer" className="h-full w-full object-cover" loading="lazy" />
                 </div>
                 <div className="p-5">
                   <h3 className="text-lg font-semibold mb-1">{p.title}</h3>
                   <p className="text-sm text-muted-foreground mb-3">{p.description}</p>
                   <div className="flex flex-wrap gap-2">
-                    {p.tags.map((t) => (
-                      <Badge key={t} className="badge-tag">{t}</Badge>
+                    {p.tags.map((t, tIdx) => (
+                      <Badge key={`${p.id}-${t}-${tIdx}`} className="badge-tag">{t}</Badge>
                     ))}
                   </div>
                 </div>
@@ -151,7 +161,7 @@ function Perguntas() {
         <h2 className="section-title mb-6 text-center">Perguntas Frequentes</h2>
         <Accordion type="single" collapsible className="w-full">
           {FAQ.map((item, idx) => (
-            <AccordionItem key={idx} value={`item-${idx}`}>
+            <AccordionItem key={`faq-${idx}`} value={`item-${idx}`}>
               <AccordionTrigger className="text-left">{item.q}</AccordionTrigger>
               <AccordionContent className="text-muted-foreground">{item.a}</AccordionContent>
             </AccordionItem>
