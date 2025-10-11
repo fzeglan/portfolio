@@ -28,7 +28,7 @@ function Hero() {
             <span className="h-1 w-1 rounded-full bg-purple-400" />
           </div>
           <h1 className="font-extrabold leading-tight text-4xl md:text-5xl lg:text-6xl font-manrope">
-            Eu sou Felipe
+            Eu Sou Felipe
           </h1>
           <p className="text-3xl md:text-4xl lg:text-5xl font-extrabold mt-1 tracking-tight" style={{color:"#DAFF01"}}>
             Especialista em Automação IA
