@@ -2,10 +2,10 @@
 // Icons are referenced by name and mapped in UI components
 
 export const HERO_PLACEHOLDER = {
-  // Temporary stock portrait picked to match dark theme until real photo is provided
+  // Foto enviada pelo usuário
   url:
-    "https://images.unsplash.com/photo-1611111082664-534b2cd71d6f",
-  alt: "Retrato profissional temporário em fundo escuro",
+    "https://customer-assets.emergentagent.com/job_python-automator/artifacts/6miwk209_WhatsApp%20Image%202025-10-11%20at%2018.50.08.jpeg",
+  alt: "Foto de Felipe Zeglan",
 };
 
 export const SERVICES = [
@@ -46,7 +46,7 @@ export const PROJECTS = [
     description:
       "Gestão de produtos, entradas e saídas com API local e sincronização em planilhas.",
     image:
-      "https://images.unsplash.com/photo-1586521995568-cdbb0e4b4a74", // armazém/estoque
+      "/images/proj-1.svg",
     tags: ["Python", "API Local", "Automação"],
   },
   {
@@ -55,7 +55,7 @@ export const PROJECTS = [
     description:
       "Assistente com processamento de linguagem e integrações para respostas automáticas.",
     image:
-      "https://images.unsplash.com/photo-1555421689-43cad7100751", // chat interface vibe
+      "/images/proj-2.svg",
     tags: ["WhatsApp", "IA", "Integração"],
   },
   {
@@ -64,7 +64,7 @@ export const PROJECTS = [
     description:
       "Pipelines que transformam planilhas em relatórios e disparam e-mails inteligentes.",
     image:
-      "https://images.unsplash.com/photo-1515879218367-8466d910aaa4", // teclado/código limpo
+      "/images/proj-3.svg",
     tags: ["Pandas", "Automação", "SMTP"],
   },
 ];

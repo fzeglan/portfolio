@@ -19,31 +19,39 @@ function Hero() {
     }
   };
   return (
-    <section className="hero-gradient border-b border-border">
-      <div className="mx-auto max-w-7xl px-4 py-16 md:py-24 grid md:grid-cols-2 gap-10 items-center">
-        <div>
-          <p className="text-xs tracking-widest uppercase text-neon mb-3">Automação • Python • Integrações</p>
-          <h1 className="font-extrabold leading-tight text-4xl md:text-5xl lg:text-6xl mb-4 font-manrope">
-            Seu parceiro em automação e soluções inteligentes com Python
+    <section className="hero-gradient pt-24 border-b border-border">
+      <div className="mx-auto max-w-7xl px-4 py-16 md:py-24 grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+        <div className="order-2 md:order-1">
+          <div className="flex items-center gap-2 mb-4">
+            <span className="h-[2px] w-8 bg-purple-500 rounded" />
+            <span className="text-sm text-muted-foreground">Olá</span>
+            <span className="h-1 w-1 rounded-full bg-purple-400" />
+          </div>
+          <h1 className="font-extrabold leading-tight text-4xl md:text-5xl lg:text-6xl font-manrope">
+            Eu sou Felipe
           </h1>
-          <p className="text-muted-foreground text-lg md:text-xl max-w-prose mb-8">
-            Desenvolvo sistemas e integrações que aumentam produtividade e reduzem custos, com foco em resultados reais.
+          <p className="text-3xl md:text-4xl lg:text-5xl font-extrabold mt-1 tracking-tight" style={{color:"#DAFF01"}}>
+            Especialista em Automação IA
           </p>
-          <div className="flex flex-wrap gap-3">
-            <a href="#projetos"><Button size="lg" className="btn-primary">Ver Projetos</Button></a>
-            <a href="#contato"><Button size="lg" variant="outline" className="btn-outline">Entre em Contato</Button></a>
+          <p className="text-muted-foreground text-lg max-w-prose mt-5">
+            Construo soluções sob medida em Python, integrações e IA que elevam produtividade e reduzem custos.
+          </p>
+          <div className="flex flex-wrap gap-3 mt-7">
+            <a href="#contato"><Button size="lg" className="btn-primary">Tem um projeto?</Button></a>
+            <a href={CONTACT_LINKS.linkedin} target="_blank" rel="noreferrer"><Button size="lg" variant="outline" className="btn-outline">Meu currículo</Button></a>
           </div>
         </div>
-        <div className="flex justify-center md:justify-end">
-          <div className="relative">
-            <div className="absolute -inset-1 rounded-full bg-neon/20 blur-xl" />
+        <div className="order-1 md:order-2 flex justify-center md:justify-end">
+          <div className="relative h-60 w-60 md:h-72 md:w-72">
+            <div className="absolute -inset-6 rounded-full opacity-40" style={{background:"radial-gradient(circle at 50% 50%, rgba(138,43,226,.45), rgba(138,43,226,.08) 55%, transparent 65%)"}} />
+            <div className="absolute -inset-2 rounded-full border border-purple-500/50" />
             <img
               src={HERO_PLACEHOLDER.url}
               alt={HERO_PLACEHOLDER.alt}
               onError={handleImgError}
               referrerPolicy="no-referrer"
-              className="relative h-48 w-48 md:h-64 md:w-64 rounded-full object-cover ring-2 ring-purple-500/60 shadow-xl"
-              loading="lazy"
+              className="relative h-full w-full rounded-full object-cover ring-1 ring-purple-500/40 shadow-xl"
+              loading="eager"
             />
           </div>
         </div>
@@ -119,9 +127,6 @@ function Servicos() {
 }
 
 function Projetos() {
-  const onImgError = (e, idx) => {
-    if (e?.currentTarget) e.currentTarget.src = `/images/proj-${idx + 1}.svg`;
-  };
   return (
     <section id="projetos" className="section-alt">
       <div className="mx-auto max-w-7xl px-4 py-16 md:py-20">
@@ -134,7 +139,7 @@ function Projetos() {
             <Card key={p.id} className="overflow-hidden card-hover">
               <CardContent className="p-0">
                 <div className="aspect-[16/10] bg-muted overflow-hidden">
-                  <img src={p.image} alt={p.title} onError={(e) => onImgError(e, idx)} referrerPolicy="no-referrer" className="h-full w-full object-cover" loading="lazy" />
+                  <img src={p.image} alt={p.title} className="h-full w-full object-cover" loading="lazy" />
                 </div>
                 <div className="p-5">
                   <h3 className="text-lg font-semibold mb-1">{p.title}</h3>

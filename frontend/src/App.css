@@ -50,7 +50,7 @@ body { font-family: "Manrope", system-ui, -apple-system, Segoe UI, Roboto, Helve
 .hero-gradient {
   background:
     radial-gradient(800px 400px at 10% -10%, rgba(138,43,226,.25), transparent 60%),
-    radial-gradient(600px 300px at 90% 110%, rgba(218,255,1,.12), transparent 60%),
+    radial-gradient(600px 300px at 90% 110%, rgba(218,255,1,.08), transparent 60%),
     var(--fz-bg);
 }
 .text-neon { color: var(--fz-neon); }
