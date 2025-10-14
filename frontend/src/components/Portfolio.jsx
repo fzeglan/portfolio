@@ -15,9 +15,8 @@ const ICONS = { Puzzle, Network, Bot, BarChart3 };
 function Hero() {
   const handleImgError = (e) => {
     if (e?.currentTarget) {
-      e.currentTarget.src = "/images/proj-2.svg"; // fallback discreto
-      e.currentTarget.style.borderRadius = "0";
-      e.currentTarget.style.boxShadow = "none";
+      e.currentTarget.src = "/images/proj-2.svg";
+      e.currentTarget.style.mixBlendMode = "normal";
     }
   };
   return (
@@ -40,14 +39,12 @@ function Hero() {
           </div>
         </div>
         <div className="order-1 md:order-2 flex justify-center md:justify-end">
-          <div className="relative w-full max-w-[320px] md:max-w-[380px] lg:max-w-[420px]">
-            {/* Sem circulo ou moldura, apenas a imagem enviada */}
+          <div className="hero-blob w-full max-w-[340px] md:max-w-[400px] lg:max-w-[460px] p-3 md:p-4">
             <img
               src={HERO_PLACEHOLDER.url}
               alt={HERO_PLACEHOLDER.alt}
               onError={handleImgError}
               referrerPolicy="no-referrer"
-              className="relative w-full h-auto object-contain"
               loading="eager"
             />
           </div>
