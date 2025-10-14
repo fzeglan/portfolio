@@ -68,7 +68,7 @@ body { font-family: "Manrope", system-ui, -apple-system, Segoe UI, Roboto, Helve
   width: 100%;
   height: auto;
   display: block;
-  mix-blend-mode: screen; /* black becomes transparent over purple bg */
+  mix-blend-mode: lighten; /* black blends to show purple bg, preserves skin tones better */
 }
 
 /* Utilities */
