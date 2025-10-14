@@ -16,7 +16,7 @@ function Hero() {
   const handleImgError = (e) => {
     if (e?.currentTarget) {
       e.currentTarget.src = "/images/proj-2.svg";
-      e.currentTarget.style.mixBlendMode = "normal";
+      e.currentTarget.style.objectFit = "contain";
     }
   };
   return (
@@ -39,15 +39,15 @@ function Hero() {
           </div>
         </div>
         <div className="order-1 md:order-2 flex justify-center md:justify-end">
-          <div className="hero-blob w-full max-w-[340px] md:max-w-[400px] lg:max-w-[460px] p-3 md:p-4">
-            <img
-              src={HERO_PLACEHOLDER.url}
-              alt={HERO_PLACEHOLDER.alt}
-              onError={handleImgError}
-              referrerPolicy="no-referrer"
-              loading="eager"
-            />
-          </div>
+          {/* Somente a imagem enviada, sem molde extra */}
+          <img
+            src={HERO_PLACEHOLDER.url}
+            alt={HERO_PLACEHOLDER.alt}
+            onError={handleImgError}
+            referrerPolicy="no-referrer"
+            className="relative w-full max-w-[420px] md:max-w-[480px] lg:max-w-[520px] h-auto object-contain drop-shadow-[0_20px_60px_rgba(0,0,0,0.45)]"
+            loading="eager"
+          />
         </div>
       </div>
     </section>

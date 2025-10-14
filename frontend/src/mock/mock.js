@@ -2,9 +2,9 @@
 // Icons are referenced by name and mapped in UI components
 
 export const HERO_PLACEHOLDER = {
-  // Foto enviada pelo usuário (fundo transparente)
+  // Foto enviada pelo usuário (já com o molde correto)
   url:
-    "https://customer-assets.emergentagent.com/job_python-automator/artifacts/jruinkvz_865fae3c-b9df-4ca5-82b1-cd2577e90f3d.png",
+    "https://customer-assets.emergentagent.com/job_python-automator/artifacts/flc2jkxw_Design_sem_nome__1_-removebg-preview.png",
   alt: "Foto de Felipe Zeglan",
 };
 
