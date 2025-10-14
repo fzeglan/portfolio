@@ -15,26 +15,24 @@ const ICONS = { Puzzle, Network, Bot, BarChart3 };
 function Hero() {
   const handleImgError = (e) => {
     if (e?.currentTarget) {
-      e.currentTarget.src = "/images/portrait-fallback.svg";
+      e.currentTarget.src = "/images/proj-2.svg"; // fallback discreto
+      e.currentTarget.style.borderRadius = "0";
+      e.currentTarget.style.boxShadow = "none";
     }
   };
   return (
     <section className="hero-gradient pt-24 border-b border-border">
       <div className="mx-auto max-w-7xl px-4 py-16 md:py-24 grid md:grid-cols-2 gap-8 md:gap-12 items-center">
         <div className="order-2 md:order-1">
-          <div className="flex items-center gap-2 mb-4">
-            <span className="h-[2px] w-8 bg-purple-500 rounded" />
-            <span className="text-sm text-muted-foreground">Olá</span>
-            <span className="h-1 w-1 rounded-full bg-purple-400" />
-          </div>
+          <div className="flex items-center gap-2 mb-4"></div>
           <h1 className="font-extrabold leading-tight text-4xl md:text-5xl lg:text-6xl font-manrope">
-            Eu Sou Felipe
+            Olá, eu sou o
           </h1>
-          <p className="text-3xl md:text-4xl lg:text-5xl font-extrabold mt-1 tracking-tight" style={{color:"#DAFF01"}}>
-            Especialista em Automação IA
-          </p>
+          <h1 className="font-extrabold leading-tight text-4xl md:text-5xl lg:text-6xl font-manrope" style={{ color: "var(--fz-purple)" }}>
+            Felipe Zeglan :)
+          </h1>
           <p className="text-muted-foreground text-lg max-w-prose mt-5">
-            Construo soluções sob medida em Python, integrações e IA que elevam produtividade e reduzem custos.
+            Especialista em Automação IA
           </p>
           <div className="flex flex-wrap gap-3 mt-7">
             <a href="#contato"><Button size="lg" className="btn-primary">Tem um projeto?</Button></a>
@@ -42,15 +40,14 @@ function Hero() {
           </div>
         </div>
         <div className="order-1 md:order-2 flex justify-center md:justify-end">
-          <div className="relative h-60 w-60 md:h-72 md:w-72">
-            <div className="absolute -inset-6 rounded-full opacity-40" style={{background:"radial-gradient(circle at 50% 50%, rgba(138,43,226,.45), rgba(138,43,226,.08) 55%, transparent 65%)"}} />
-            <div className="absolute -inset-2 rounded-full border border-purple-500/50" />
+          <div className="relative w-full max-w-[320px] md:max-w-[380px] lg:max-w-[420px]">
+            {/* Sem circulo ou moldura, apenas a imagem enviada */}
             <img
               src={HERO_PLACEHOLDER.url}
               alt={HERO_PLACEHOLDER.alt}
               onError={handleImgError}
               referrerPolicy="no-referrer"
-              className="relative h-full w-full rounded-full object-cover ring-1 ring-purple-500/40 shadow-xl"
+              className="relative w-full h-auto object-contain"
               loading="eager"
             />
           </div>

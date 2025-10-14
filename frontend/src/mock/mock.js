@@ -4,7 +4,7 @@
 export const HERO_PLACEHOLDER = {
   // Foto enviada pelo usuário
   url:
-    "https://customer-assets.emergentagent.com/job_python-automator/artifacts/6miwk209_WhatsApp%20Image%202025-10-11%20at%2018.50.08.jpeg",
+    "https://customer-assets.emergentagent.com/job_python-automator/artifacts/9a6r9eq4_Design_sem_nome-removebg-preview%20%281%29.png",
   alt: "Foto de Felipe Zeglan",
 };
 
