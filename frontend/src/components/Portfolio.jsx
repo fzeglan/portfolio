@@ -93,6 +93,34 @@ function Sobre() {
   );
 }
 
+function Servicos() {
+  return (
+    <section id="servicos" className="section">
+      <div className="mx-auto max-w-7xl px-4 py-16 md:py-20">
+        <h2 className="section-title mb-8">Serviços</h2>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {SERVICES.map((s) => {
+            const Ico = ICONS[s.icon] || Puzzle;
+            return (
+              <Card key={s.id} className="card-hover">
+                <CardContent className="p-6 flex flex-col h-full">
+                  <div className="h-10 w-10 rounded-xl bg-purple-500/15 flex items-center justify-center mb-4">
+                    <Ico className="h-5 w-5 text-purple-400" />
+                  </div>
+                  <h3 className="text-lg font-semibold mb-1">{s.title}</h3>
+                  <p className="text-sm text-muted-foreground mb-4 flex-1">{s.description}</p>
+                  <Button variant="outline" className="btn-outline mt-auto">Saiba mais</Button>
+                </CardContent>
+              </Card>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+
 function Projetos() {
   const onImgError = (e, idx) => {
     if (e?.currentTarget) e.currentTarget.src = `/images/proj-${idx + 1}.svg`;
