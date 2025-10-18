@@ -41,13 +41,13 @@ export const SERVICES = [
 
 export const PROJECTS = [
   {
-    id: "estoque-api",
-    title: "Controle de Estoque com API Local",
+    id: "rh-automation",
+    title: "Automação de RH - Triagem Inteligente",
     description:
-      "Gestão de produtos, entradas e saídas com API local e sincronização em planilhas.",
-    image:
-      "/images/proj-1.svg",
-    tags: ["Python", "API Local", "Automação"],
+      "Sistema em Python que automatiza a triagem inicial de currículos com pontuação, relatórios e comunicação automática.",
+    image: "https://github.com/fzeglan/rh-automation/raw/main/requirements/executando.png",
+    tags: ["Python", "Pandas", "CSV", "JSON", "Automação"],
+    repo: "https://github.com/fzeglan/rh-automation",
   },
   {
     id: "whatsapp-ia",

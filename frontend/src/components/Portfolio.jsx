@@ -7,7 +7,7 @@ import { Textarea } from "./ui/textarea";
 import { Badge } from "./ui/badge";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "./ui/accordion";
 import { toast } from "../hooks/use-toast";
-import { Puzzle, Network, Bot, BarChart3, Github, Linkedin, Mail } from "lucide-react";
+import { Puzzle, Network, Bot, BarChart3, Github, Linkedin, Mail, ExternalLink } from "lucide-react";
 import { Toaster } from "./ui/toaster";
 
 const ICONS = { Puzzle, Network, Bot, BarChart3 };
@@ -93,34 +93,10 @@ function Sobre() {
   );
 }
 
-function Servicos() {
-  return (
-    <section id="servicos" className="section">
-      <div className="mx-auto max-w-7xl px-4 py-16 md:py-20">
-        <h2 className="section-title mb-8">Serviços</h2>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {SERVICES.map((s) => {
-            const Ico = ICONS[s.icon] || Puzzle;
-            return (
-              <Card key={s.id} className="card-hover">
-                <CardContent className="p-6 flex flex-col h-full">
-                  <div className="h-10 w-10 rounded-xl bg-purple-500/15 flex items-center justify-center mb-4">
-                    <Ico className="h-5 w-5 text-purple-400" />
-                  </div>
-                  <h3 className="text-lg font-semibold mb-1">{s.title}</h3>
-                  <p className="text-sm text-muted-foreground mb-4 flex-1">{s.description}</p>
-                  <Button variant="outline" className="btn-outline mt-auto">Saiba mais</Button>
-                </CardContent>
-              </Card>
-            );
-          })}
-        </div>
-      </div>
-    </section>
-  );
-}
-
 function Projetos() {
+  const onImgError = (e, idx) => {
+    if (e?.currentTarget) e.currentTarget.src = `/images/proj-${idx + 1}.svg`;
+  };
   return (
     <section id="projetos" className="section-alt">
       <div className="mx-auto max-w-7xl px-4 py-16 md:py-20">
@@ -131,18 +107,25 @@ function Projetos() {
         <div className="grid md:grid-cols-3 gap-4">
           {PROJECTS.map((p, idx) => (
             <Card key={p.id} className="overflow-hidden card-hover">
-              <CardContent className="p-0">
+              <CardContent className="p-0 flex flex-col h-full">
                 <div className="aspect-[16/10] bg-muted overflow-hidden">
-                  <img src={p.image} alt={p.title} className="h-full w-full object-cover" loading="lazy" />
+                  <img src={p.image} alt={p.title} onError={(e) => onImgError(e, idx)} className="h-full w-full object-cover" loading="lazy" />
                 </div>
-                <div className="p-5">
+                <div className="p-5 flex-1 flex flex-col">
                   <h3 className="text-lg font-semibold mb-1">{p.title}</h3>
-                  <p className="text-sm text-muted-foreground mb-3">{p.description}</p>
-                  <div className="flex flex-wrap gap-2">
+                  <p className="text-sm text-muted-foreground mb-3 flex-1">{p.description}</p>
+                  <div className="flex flex-wrap gap-2 mb-3">
                     {p.tags.map((t, tIdx) => (
                       <Badge key={`${p.id}-${t}-${tIdx}`} className="badge-tag">{t}</Badge>
                     ))}
                   </div>
+                  {p.repo && (
+                    <div className="pt-1">
+                      <a href={p.repo} target="_blank" rel="noreferrer">
+                        <Button variant="outline" size="sm" className="btn-outline"><ExternalLink className="h-4 w-4 mr-2"/> Ver repositório</Button>
+                      </a>
+                    </div>
+                  )}
                 </div>
               </CardContent>
             </Card>
