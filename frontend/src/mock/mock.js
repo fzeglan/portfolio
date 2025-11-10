@@ -153,4 +153,25 @@ export const SERVICE_DETAILS = {
   },
 };
 
+
+// Local storage helpers for mocked contact form (restored)
+const STORAGE_KEY = "fz_portfolio_contact_submissions";
+export function saveContactSubmission(payload) {
+  try {
+    const existing = JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
+    existing.push({ ...payload, id: Date.now() });
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(existing));
+    return true;
+  } catch (e) {
+    return false;
+  }
+}
+export function listContactSubmissions() {
+  try {
+    return JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
+  } catch (e) {
+    return [];
+  }
+}
+
 export const FAQ_GLOBAL = [];
