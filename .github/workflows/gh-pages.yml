@@ -21,19 +21,30 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Detect working directory (monorepo or single)
+        id: detect
+        run: |
+          if [ -d "frontend" ]; then
+            echo "WORKDIR=frontend" >> $GITHUB_ENV
+          else
+            echo "WORKDIR=." >> $GITHUB_ENV
+          fi
+          echo "Using WORKDIR=$WORKDIR"
+
       - name: Use Node.js 20
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'yarn'
-          cache-dependency-path: frontend/yarn.lock
+          cache: yarn
+          cache-dependency-path: ${{ env.WORKDIR }}/yarn.lock
 
-      - name: Install dependencies (frontend)
-        working-directory: frontend
-        run: yarn install --frozen-lockfile
+      - name: Install dependencies
+        working-directory: ${{ env.WORKDIR }}
+        run: |
+          yarn install --frozen-lockfile || yarn install
 
-      - name: Build (frontend)
-        working-directory: frontend
+      - name: Build
+        working-directory: ${{ env.WORKDIR }}
         env:
           CI: false
         run: yarn build
@@ -42,6 +53,6 @@ jobs:
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./frontend/build
+          publish_dir: ${{ env.WORKDIR }}/build
           publish_branch: gh-pages
           force_orphan: true
