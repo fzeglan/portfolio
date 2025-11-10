@@ -1,72 +1,10 @@
-name: Deploy Frontend to GitHub Pages
+name: Disabled - Manual Deploy Only
 
 on:
-  push:
-    branches: [ main ]
   workflow_dispatch:
 
-permissions:
-  contents: write
-
-concurrency:
-  group: gh-pages
-  cancel-in-progress: true
-
 jobs:
-  build-and-deploy:
+  noop:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
-      - name: Use Node.js 20 (with dual cache paths)
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: yarn
-          cache-dependency-path: |
-            frontend/yarn.lock
-            yarn.lock
-
-      # Monorepo (frontend/)
-      - name: Install deps (frontend)
-        if: ${{ hashFiles('frontend/yarn.lock') != '' }}
-        working-directory: frontend
-        run: yarn install --frozen-lockfile || yarn install
-
-      - name: Build (frontend)
-        if: ${{ hashFiles('frontend/yarn.lock') != '' }}
-        working-directory: frontend
-        env:
-          CI: false
-        run: yarn build
-
-      # Single app at repo root
-      - name: Install deps (root)
-        if: ${{ hashFiles('frontend/yarn.lock') == '' }}
-        run: yarn install --frozen-lockfile || yarn install
-
-      - name: Build (root)
-        if: ${{ hashFiles('frontend/yarn.lock') == '' }}
-        env:
-          CI: false
-        run: yarn build
-
-      - name: Pick publish dir
-        id: pick_dir
-        run: |
-          if [ -d "frontend/build" ]; then
-            echo "dir=./frontend/build" >> $GITHUB_OUTPUT
-          else
-            echo "dir=./build" >> $GITHUB_OUTPUT
-          fi
-
-      - name: Deploy to gh-pages branch
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ${{ steps.pick_dir.outputs.dir }}
-          publish_branch: gh-pages
-          force_orphan: true
+      - run: echo "CI desativado. Use 'yarn deploy' localmente a partir da pasta frontend."
