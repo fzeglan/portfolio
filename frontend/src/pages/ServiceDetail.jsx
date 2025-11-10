@@ -40,7 +40,7 @@ export default function ServiceDetail() {
             <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight">{data.title}</h1>
             <p className="text-lg text-muted-foreground mt-3 max-w-prose">{data.subtitle}</p>
             <div className="flex gap-3 mt-6 flex-wrap">
-              <a href="#contato"><Button className="btn-primary"><Mail className="h-4 w-4 mr-2"/>Fale comigo</Button></a>
+              <a href={CONTACT_LINKS.email}><Button className="btn-primary"><Mail className="h-4 w-4 mr-2"/>Fale comigo</Button></a>
               <a href={CONTACT_LINKS.github} target="_blank" rel="noreferrer"><Button variant="outline" className="btn-outline"><ExternalLink className="h-4 w-4 mr-2"/>Ver GitHub</Button></a>
               <Button variant="outline" className="btn-outline" onClick={() => navigate(-1)}><ArrowLeft className="h-4 w-4 mr-2"/>Voltar</Button>
             </div>
