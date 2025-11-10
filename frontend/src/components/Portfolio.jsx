@@ -21,7 +21,7 @@ function Hero() { /* unchanged for brevity */
     }
   };
   return (
-    <section className="hero-gradient pt-24 border-b border-border">
+    <section className="hero-gradient pt-16 md:pt-24 border-b border-border">
       <div className="mx-auto max-w-7xl px-4 py-16 md:py-24 grid md:grid-cols-2 gap-8 md:gap-12 items-center">
         <div className="order-2 md:order-1">
           <div className="flex items-center gap-2 mb-4"></div>
@@ -37,7 +37,7 @@ function Hero() { /* unchanged for brevity */
           </div>
         </div>
         <div className="order-1 md:order-2 flex justify-center md:justify-end">
-          <img src={HERO_PLACEHOLDER.url} alt={HERO_PLACEHOLDER.alt} onError={handleImgError} referrerPolicy="no-referrer" className="relative w-full max-w-[420px] md:max-w-[480px] lg:max-w-[520px] h-auto object-contain drop-shadow-[0_20px_60px_rgba(0,0,0,0.45)]" loading="eager" />
+          <img src={HERO_PLACEHOLDER.url} alt={HERO_PLACEHOLDER.alt} onError={handleImgError} referrerPolicy="no-referrer" className="relative w-full max-w-[320px] sm:max-w-[380px] md:max-w-[480px] lg:max-w-[520px] h-auto object-contain drop-shadow-[0_20px_60px_rgba(0,0,0,0.45)]" loading="eager" />
         </div>
       </div>
     </section>
