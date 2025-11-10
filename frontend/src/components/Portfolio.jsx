@@ -29,7 +29,10 @@ function Hero() { /* unchanged for brevity */
           <h1 className="font-extrabold leading-tight text-4xl md:text-5xl lg:text-6xl font-manrope" style={{ color: "var(--fz-purple)" }}>Felipe Zeglan :)</h1>
           <p className="text-muted-foreground text-lg max-w-prose mt-5">Especialista em Automação IA</p>
           <div className="flex flex-wrap gap-3 mt-7">
-            <a href="#contato"><Button size="lg" className="btn-primary">Tem um projeto?</Button></a>
+            <Button size="lg" className="btn-primary" onClick={() => {
+              const el = document.getElementById('contato');
+              if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }}>Tem um projeto?</Button>
             <a href={CONTACT_LINKS.linkedin} target="_blank" rel="noreferrer"><Button size="lg" variant="outline" className="btn-outline">Meu currículo</Button></a>
           </div>
         </div>
