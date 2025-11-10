@@ -120,7 +120,6 @@ function Servicos() {
   );
 }
 
-
 function Projetos() {
   const onImgError = (e, idx) => {
     if (e?.currentTarget) e.currentTarget.src = `/images/proj-${idx + 1}.svg`;
@@ -130,7 +129,7 @@ function Projetos() {
       <div className="mx-auto max-w-7xl px-4 py-16 md:py-20">
         <div className="flex items-end justify-between mb-6">
           <h2 className="section-title">Projetos em Destaque</h2>
-          <a href="#contato" className="text-sm text-purple-300 hover:underline">Ver todos os projetos</a>
+          <a href={CONTACT_LINKS.github} target="_blank" rel="noreferrer" className="text-sm text-purple-300 hover:underline">Ver todos os projetos</a>
         </div>
         <div className="grid md:grid-cols-3 gap-4">
           {PROJECTS.map((p, idx) => (

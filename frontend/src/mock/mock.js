@@ -50,22 +50,22 @@ export const PROJECTS = [
     repo: "https://github.com/fzeglan/rh-automation",
   },
   {
-    id: "whatsapp-ia",
-    title: "Bot de Atendimento WhatsApp + IA",
+    id: "clinic-management-system",
+    title: "Sistema Clínico - Python + PostgreSQL",
     description:
-      "Assistente com processamento de linguagem e integrações para respostas automáticas.",
-    image:
-      "/images/proj-2.svg",
-    tags: ["WhatsApp", "IA", "Integração"],
+      "Backend modular com CRUD completo e modelagem relacional em PostgreSQL; base pronta para GUI Tkinter.",
+    image: "/images/proj-2.svg",
+    tags: ["Python", "PostgreSQL", "CRUD", "SQL"],
+    repo: "https://github.com/fzeglan/clinic-management-system",
   },
   {
-    id: "planilhas-emails",
-    title: "Automação de Planilhas e E-mails",
+    id: "whatsapp-ai-automation-fiqon",
+    title: "WhatsApp AI Automation (FiqOn + GPT + Z-API)",
     description:
-      "Pipelines que transformam planilhas em relatórios e disparam e-mails inteligentes.",
-    image:
-      "/images/proj-3.svg",
-    tags: ["Pandas", "Automação", "SMTP"],
+      "Automação completa de atendimento e vendas via WhatsApp com fluxo no-code, IA e integrações por webhook.",
+    image: "https://github.com/fzeglan/whatsapp-ai-automation-fiqon/raw/main/imagens/fluxo-fiqon.png",
+    tags: ["WhatsApp", "Z-API", "GPT", "No-code"],
+    repo: "https://github.com/fzeglan/whatsapp-ai-automation-fiqon",
   },
 ];
 
