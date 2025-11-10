@@ -33,7 +33,7 @@ function Hero() { /* unchanged for brevity */
               const el = document.getElementById('contato');
               if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }}>Tem um projeto?</Button>
-            <a href={CONTACT_LINKS.linkedin} target="_blank" rel="noreferrer"><Button size="lg" variant="outline" className="btn-outline">Meu currículo</Button></a>
+            <a href="https://customer-assets.emergentagent.com/job_python-automator/artifacts/bmu7zz7o_Especialista%20IA%20Curr%C3%ADculo%20%281%29.pdf" target="_blank" rel="noreferrer"><Button size="lg" variant="outline" className="btn-outline">Meu currículo</Button></a>
           </div>
         </div>
         <div className="order-1 md:order-2 flex justify-center md:justify-end">
