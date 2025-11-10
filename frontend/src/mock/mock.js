@@ -54,7 +54,7 @@ export const PROJECTS = [
     title: "Sistema Clínico - Python + PostgreSQL",
     description:
       "Backend modular com CRUD completo e modelagem relacional em PostgreSQL; base pronta para GUI Tkinter.",
-    image: "/images/proj-2.svg",
+    image: "https://customer-assets.emergentagent.com/job_python-automator/artifacts/0336p76i_image.png",
     tags: ["Python", "PostgreSQL", "CRUD", "SQL"],
     repo: "https://github.com/fzeglan/clinic-management-system",
   },
