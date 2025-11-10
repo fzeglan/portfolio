@@ -85,7 +85,7 @@ export const FAQ = [
 ];
 
 export const CONTACT_LINKS = {
-  email: "mailto:contato@fyzestore.com",
+  email: "mailto:felipezeglan@outlook.com",
   github: "https://github.com/fzeglan",
   linkedin: "https://linkedin.com/in/felipezeglan",
 };
