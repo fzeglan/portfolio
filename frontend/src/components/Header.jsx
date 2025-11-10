@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Button } from "../components/ui/button";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "../components/ui/sheet";
 import { Menu, Info, Wrench, FolderGit2, HelpCircle, Mail } from "lucide-react";
@@ -13,9 +13,13 @@ function scrollToId(id) {
   if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
-function DesktopHeader() {
+function DesktopHeader({ visible }) {
   return (
-    <div className="pointer-events-none fixed inset-x-0 top-4 z-50 hidden justify-center md:flex">
+    <div
+      className={`pointer-events-none fixed inset-x-0 top-4 z-50 hidden justify-center md:flex transition-transform duration-300 ${
+        visible ? "translate-y-0" : "-translate-y-full"
+      }`}
+    >
       <header className="pointer-events-auto mx-auto w-full max-w-5xl rounded-full border border-white/10 bg-background/30 backdrop-blur px-4 py-2 shadow-lg shadow-black/20">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
@@ -37,7 +41,7 @@ function DesktopHeader() {
   );
 }
 
-function MobileHeader() {
+function MobileHeader({ visible }) {
   const [open, setOpen] = useState(false);
 
   const handleGo = (id) => {
@@ -46,7 +50,11 @@ function MobileHeader() {
   };
 
   return (
-    <div className="fixed inset-x-0 top-0 z-50 md:hidden">
+    <div
+      className={`fixed inset-x-0 top-0 z-50 md:hidden transition-transform duration-250 will-change-transform ${
+        open ? "translate-y-0" : visible ? "translate-y-0" : "-translate-y-full"
+      }`}
+    >
       <div className="mx-3 mt-3 rounded-full border border-white/10 bg-background/30 backdrop-blur px-3 py-2 shadow-lg shadow-black/20 flex items-center justify-between">
         <div className="flex items-center gap-3">
           <div className="h-2 w-6 rounded-full bg-purple-500" />
@@ -97,15 +105,35 @@ function MobileHeader() {
 }
 
 export default function Header() {
+  const [visible, setVisible] = useState(true);
+  const lastYRef = useRef(0);
+
   useEffect(() => {
-    // fixa tema escuro
     document.documentElement.classList.add("dark");
+    lastYRef.current = window.scrollY || 0;
+    const THRESHOLD = 8; // pixels
+
+    const onScroll = () => {
+      const y = window.scrollY || 0;
+      const last = lastYRef.current;
+      if (y < 10) {
+        setVisible(true);
+      } else if (y > last + THRESHOLD) {
+        setVisible(false);
+      } else if (y < last - THRESHOLD) {
+        setVisible(true);
+      }
+      lastYRef.current = y;
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   return (
     <>
-      <DesktopHeader />
-      <MobileHeader />
+      <DesktopHeader visible={visible} />
+      <MobileHeader visible={visible} />
     </>
   );
 }
