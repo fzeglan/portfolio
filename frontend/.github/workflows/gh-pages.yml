@@ -1,0 +1,10 @@
+name: Disabled - Manual Deploy Only (frontend)
+
+on:
+  workflow_dispatch:
+
+jobs:
+  noop:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "CI desativado nesta pasta. Publicação será manual via gh-pages."

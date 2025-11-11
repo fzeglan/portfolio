@@ -1,0 +1,10 @@
+name: Disabled - Manual Deploy Only
+
+on:
+  workflow_dispatch:
+
+jobs:
+  noop:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "CI desativado. Use 'yarn deploy' localmente a partir da pasta frontend."

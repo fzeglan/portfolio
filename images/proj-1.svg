@@ -1,0 +1,20 @@
+<svg width="1200" height="800" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1a1a1d"/>
+      <stop offset="100%" stop-color="#111113"/>
+    </linearGradient>
+    <linearGradient id="glow" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#8A2BE2" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#DAFF01" stop-opacity="0.15"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#bg)"/>
+  <ellipse cx="280" cy="160" rx="220" ry="120" fill="url(#glow)"/>
+  <rect x="120" y="260" width="960" height="340" rx="16" fill="#141416" stroke="#2a2a2e"/>
+  <rect x="160" y="300" width="360" height="20" rx="4" fill="#8A2BE2"/>
+  <rect x="160" y="340" width="760" height="14" rx="3" fill="#2a2a2e"/>
+  <rect x="160" y="370" width="680" height="14" rx="3" fill="#2a2a2e"/>
+  <rect x="160" y="400" width="520" height="14" rx="3" fill="#2a2a2e"/>
+  <rect x="160" y="450" width="320" height="14" rx="3" fill="#DAFF01"/>
+</svg>
